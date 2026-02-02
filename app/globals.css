@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --card: #fcfcfc;
+    --ring: #009B68;
+    --input: #f6f6f6;
+    --muted: #ededed;
+    --accent: #ededed;
+    --border: #dfdfdf;
+    --radius: 0.5rem;
+    --chart-1: #009B68;
+    --chart-2: #3b82f6;
+    --chart-3: #8b5cf6;
+    --chart-4: #f59e0b;
+    --chart-5: #10b981;
+    --popover: #fcfcfc;
+    --primary: #009B68;
+    --sidebar: #fcfcfc;
+    --secondary: #fdfdfd;
+    --background: #fcfcfc;
+    --foreground: #171717;
+    --destructive: #ca3214;
+    --sidebar-ring: #009B68;
+    --sidebar-accent: #ededed;
+    --sidebar-border: #dfdfdf;
+    --card-foreground: #171717;
+    --sidebar-primary: #009B68;
+    --muted-foreground: #202020;
+    --accent-foreground: #202020;
+    --popover-foreground: #525252;
+    --primary-foreground: #ffffff;
+    --sidebar-foreground: #707070;
+    --secondary-foreground: #171717;
+    --destructive-foreground: #fffcfc;
+    --sidebar-accent-foreground: #202020;
+    --sidebar-primary-foreground: #ffffff;
+  }
+
+  .dark {
+    --card: #171717;
+    --ring: #009B68;
+    --input: #242424;
+    --muted: #1f1f1f;
+    --accent: #313131;
+    --border: #292929;
+    --chart-1: #009B68;
+    --chart-2: #60a5fa;
+    --chart-3: #a78bfa;
+    --chart-4: #fbbf24;
+    --chart-5: #2dd4bf;
+    --popover: #242424;
+    --primary: #006239;
+    --sidebar: #121212;
+    --secondary: #242424;
+    --background: #121212;
+    --foreground: #e2e8f0;
+    --destructive: #541c15;
+    --sidebar-ring: #009B68;
+    --sidebar-accent: #313131;
+    --sidebar-border: #292929;
+    --card-foreground: #e2e8f0;
+    --sidebar-primary: #006239;
+    --muted-foreground: #a2a2a2;
+    --accent-foreground: #fafafa;
+    --popover-foreground: #a9a9a9;
+    --primary-foreground: #ffffff;
+    --sidebar-foreground: #898989;
+    --secondary-foreground: #fafafa;
+    --destructive-foreground: #ede9e8;
+    --sidebar-accent-foreground: #fafafa;
+    --sidebar-primary-foreground: #ffffff;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer components {
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--ring), var(--primary));
+  }
+
+  /* Card with hover effect */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Section padding standard */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Container with max-width */
+  .container-tight {
+    @apply max-w-5xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6;
+  }
+}
+
+@layer utilities {
+  /* Brand gradient for buttons and elements */
+  .gradient-zonder {
+    background: linear-gradient(135deg, #009B68, #006B47);
+  }
+
+  .dark .gradient-zonder {
+    background: linear-gradient(135deg, #009B68, #006239);
+  }
+
+  /* Subtle gradient backgrounds */
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, var(--background) 0%, var(--muted) 100%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at top, var(--muted) 0%, var(--background) 70%);
+  }
+
+  /* Glow effects */
+  .glow {
+    box-shadow: 0 0 20px var(--ring);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 10px var(--ring);
+  }
+
+  /* Border gradient */
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card), var(--card)) padding-box,
+                linear-gradient(135deg, var(--ring), var(--primary)) border-box;
+  }
+
+  /* Text shadow for headings */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: relative;
+  }
+  .noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Smooth scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
