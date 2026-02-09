@@ -13,57 +13,55 @@ const TIERS: PricingTier[] = [
   {
     name: "Starter",
     price: {
-      monthly: 0,
-      yearly: 0,
+      monthly: 60,
+      yearly: 50,
     },
-    description: "Perfect for trying things out",
+    description: "For solo operators",
     features: [
+      "10-day free trial",
       "2 active agents",
-      "100 actions/month",
-      "3 clients max",
-      "Community support",
+      "No auto-scaling",
       "Basic analytics",
+      "Community support",
     ],
-    cta: "Start",
+    cta: "Start free trial",
   },
   {
-    name: "Pro",
+    name: "Growth",
     price: {
-      monthly: 49,
-      yearly: 39,
+      monthly: 150,
+      yearly: 125,
     },
-    description: "For growing agencies",
+    description: "For growing teams",
     features: [
-      "10 active agents",
-      "5,000 actions/month",
-      "25 clients",
-      "Priority support",
+      "6 active agents",
+      "Auto-scale up to 2x",
       "Advanced analytics",
+      "Priority support",
       "Custom branding",
     ],
-    cta: "Start",
+    cta: "Get started",
     popular: true,
   },
   {
-    name: "Business",
+    name: "Agency",
     price: {
-      monthly: 149,
-      yearly: 119,
+      monthly: 300,
+      yearly: 250,
     },
-    description: "For scaling agencies",
+    description: "For agencies at scale",
     features: [
-      "50 active agents",
-      "25,000 actions/month",
-      "Unlimited clients",
-      "Dedicated support",
+      "20 active agents",
+      "Auto-scale up to 6x",
+      "Per-agent client billing",
       "White-label option",
       "API access",
-      "Custom integrations",
+      "Dedicated support",
     ],
-    cta: "Start",
+    cta: "Get started",
   },
   {
-    name: "Enterprise",
+    name: "Custom",
     price: {
       monthly: "Custom",
       yearly: "Custom",
@@ -71,8 +69,7 @@ const TIERS: PricingTier[] = [
     description: "For large organizations",
     features: [
       "Unlimited agents",
-      "Unlimited actions",
-      "Unlimited clients",
+      "Custom scaling",
       "24/7 support",
       "SLA guarantee",
       "Custom deployment",
@@ -85,35 +82,35 @@ const TIERS: PricingTier[] = [
 
 const FEATURE_COMPARISON = [
   {
-    category: "Agents & Actions",
+    category: "Agents & Scaling",
     features: [
-      { name: "Active agents", starter: "2", pro: "10", business: "50", enterprise: "Unlimited" },
-      { name: "Actions per month", starter: "100", pro: "5,000", business: "25,000", enterprise: "Unlimited" },
-      { name: "Clients", starter: "3", pro: "25", business: "Unlimited", enterprise: "Unlimited" },
-      { name: "Agent templates", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Active agents", starter: "2", growth: "6", agency: "20", custom: "Unlimited" },
+      { name: "Auto-scaling", starter: false, growth: "2x", agency: "6x", custom: "Custom" },
+      { name: "10-day free trial", starter: true, growth: false, agency: false, custom: false },
+      { name: "Agent templates", starter: true, growth: true, agency: true, custom: true },
     ],
   },
   {
     category: "Features",
     features: [
-      { name: "Client dashboard", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Basic analytics", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Advanced analytics", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Custom branding", starter: false, pro: true, business: true, enterprise: true },
-      { name: "White-label", starter: false, pro: false, business: true, enterprise: true },
-      { name: "API access", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Custom integrations", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Client dashboard", starter: true, growth: true, agency: true, custom: true },
+      { name: "Basic analytics", starter: true, growth: true, agency: true, custom: true },
+      { name: "Advanced analytics", starter: false, growth: true, agency: true, custom: true },
+      { name: "Custom branding", starter: false, growth: true, agency: true, custom: true },
+      { name: "Per-agent client billing", starter: false, growth: false, agency: true, custom: true },
+      { name: "White-label", starter: false, growth: false, agency: true, custom: true },
+      { name: "API access", starter: false, growth: false, agency: true, custom: true },
     ],
   },
   {
     category: "Support",
     features: [
-      { name: "Community support", starter: true, pro: false, business: false, enterprise: false },
-      { name: "Priority support", starter: false, pro: true, business: false, enterprise: false },
-      { name: "Dedicated support", starter: false, pro: false, business: true, enterprise: false },
-      { name: "24/7 support", starter: false, pro: false, business: false, enterprise: true },
-      { name: "SLA guarantee", starter: false, pro: false, business: false, enterprise: true },
-      { name: "Account manager", starter: false, pro: false, business: false, enterprise: true },
+      { name: "Community support", starter: true, growth: false, agency: false, custom: false },
+      { name: "Priority support", starter: false, growth: true, agency: false, custom: false },
+      { name: "Dedicated support", starter: false, growth: false, agency: true, custom: false },
+      { name: "24/7 support", starter: false, growth: false, agency: false, custom: true },
+      { name: "SLA guarantee", starter: false, growth: false, agency: false, custom: true },
+      { name: "Account manager", starter: false, growth: false, agency: false, custom: true },
     ],
   },
 ];
@@ -137,10 +134,10 @@ export default function PricingPage() {
             <div className="space-y-4">
               <p className="text-sm font-medium text-ring">Pricing</p>
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-                Pay per action
+                Simple, transparent pricing
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Start free. Scale as you grow. Only pay for what you use.
+                Start with a 10-day trial. Scale your agents as you grow.
               </p>
             </div>
             <div className="mx-auto flex w-fit rounded-full bg-muted p-1">
@@ -177,9 +174,9 @@ export default function PricingPage() {
                 <tr className="border-b border-border">
                   <th className="text-left py-4 px-4 font-medium">Features</th>
                   <th className="text-center py-4 px-4 font-medium">Starter</th>
-                  <th className="text-center py-4 px-4 font-medium">Pro</th>
-                  <th className="text-center py-4 px-4 font-medium">Business</th>
-                  <th className="text-center py-4 px-4 font-medium bg-primary/5">Enterprise</th>
+                  <th className="text-center py-4 px-4 font-medium">Growth</th>
+                  <th className="text-center py-4 px-4 font-medium">Agency</th>
+                  <th className="text-center py-4 px-4 font-medium bg-primary/5">Custom</th>
                 </tr>
               </thead>
               <tbody>
@@ -205,36 +202,36 @@ export default function PricingPage() {
                           )}
                         </td>
                         <td className="py-4 px-4 text-center">
-                          {typeof feature.pro === 'boolean' ? (
-                            feature.pro ? (
+                          {typeof feature.growth === 'boolean' ? (
+                            feature.growth ? (
                               <Check className="w-5 h-5 text-ring mx-auto" />
                             ) : (
                               <X className="w-5 h-5 text-muted-foreground mx-auto" />
                             )
                           ) : (
-                            <span className="text-sm font-medium">{feature.pro}</span>
+                            <span className="text-sm font-medium">{feature.growth}</span>
                           )}
                         </td>
                         <td className="py-4 px-4 text-center">
-                          {typeof feature.business === 'boolean' ? (
-                            feature.business ? (
+                          {typeof feature.agency === 'boolean' ? (
+                            feature.agency ? (
                               <Check className="w-5 h-5 text-ring mx-auto" />
                             ) : (
                               <X className="w-5 h-5 text-muted-foreground mx-auto" />
                             )
                           ) : (
-                            <span className="text-sm font-medium">{feature.business}</span>
+                            <span className="text-sm font-medium">{feature.agency}</span>
                           )}
                         </td>
                         <td className="py-4 px-4 text-center bg-primary/5">
-                          {typeof feature.enterprise === 'boolean' ? (
-                            feature.enterprise ? (
+                          {typeof feature.custom === 'boolean' ? (
+                            feature.custom ? (
                               <Check className="w-5 h-5 text-ring mx-auto" />
                             ) : (
                               <X className="w-5 h-5 text-muted-foreground mx-auto" />
                             )
                           ) : (
-                            <span className="text-sm font-medium">{feature.enterprise}</span>
+                            <span className="text-sm font-medium">{feature.custom}</span>
                           )}
                         </td>
                       </tr>

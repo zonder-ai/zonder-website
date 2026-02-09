@@ -10,57 +10,55 @@ const TIERS: PricingTier[] = [
   {
     name: "Starter",
     price: {
-      monthly: 0,
-      yearly: 0,
+      monthly: 60,
+      yearly: 50,
     },
-    description: "Perfect for trying things out",
+    description: "For solo operators",
     features: [
+      "10-day free trial",
       "2 active agents",
-      "100 actions/month",
-      "3 clients max",
-      "Community support",
+      "No auto-scaling",
       "Basic analytics",
+      "Community support",
     ],
-    cta: "Start",
+    cta: "Start free trial",
   },
   {
-    name: "Pro",
+    name: "Growth",
     price: {
-      monthly: 49,
-      yearly: 39,
+      monthly: 150,
+      yearly: 125,
     },
-    description: "For growing agencies",
+    description: "For growing teams",
     features: [
-      "10 active agents",
-      "5,000 actions/month",
-      "25 clients",
-      "Priority support",
+      "6 active agents",
+      "Auto-scale up to 2x",
       "Advanced analytics",
+      "Priority support",
       "Custom branding",
     ],
-    cta: "Start",
+    cta: "Get started",
     popular: true,
   },
   {
-    name: "Business",
+    name: "Agency",
     price: {
-      monthly: 149,
-      yearly: 119,
+      monthly: 300,
+      yearly: 250,
     },
-    description: "For scaling agencies",
+    description: "For agencies at scale",
     features: [
-      "50 active agents",
-      "25,000 actions/month",
-      "Unlimited clients",
-      "Dedicated support",
+      "20 active agents",
+      "Auto-scale up to 6x",
+      "Per-agent client billing",
       "White-label option",
       "API access",
-      "Custom integrations",
+      "Dedicated support",
     ],
-    cta: "Start",
+    cta: "Get started",
   },
   {
-    name: "Enterprise",
+    name: "Custom",
     price: {
       monthly: "Custom",
       yearly: "Custom",
@@ -68,8 +66,7 @@ const TIERS: PricingTier[] = [
     description: "For large organizations",
     features: [
       "Unlimited agents",
-      "Unlimited actions",
-      "Unlimited clients",
+      "Custom scaling",
       "24/7 support",
       "SLA guarantee",
       "Custom deployment",
@@ -91,10 +88,10 @@ export function PricingSection() {
             <div className="space-y-4">
               <p className="text-sm font-medium text-ring">Pricing</p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                Pay per action
+                Simple, transparent pricing
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Start free. Scale as you grow. Only pay for what you use.
+                Start with a 10-day trial. Scale your agents as you grow.
               </p>
             </div>
             <div className="mx-auto flex w-fit rounded-full bg-muted p-1">
