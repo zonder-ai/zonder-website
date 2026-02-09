@@ -50,7 +50,7 @@ export function HeroSection() {
               <div className="flex flex-wrap gap-4 mb-14">
                 <Button size="lg" className="h-12 px-6" asChild>
                   <Link href="/contact">
-                    Start free
+                    Start free trial
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -106,7 +106,7 @@ export function HeroSection() {
                     </div>
                     <div className="flex gap-2">
                       <div className="px-3 py-1.5 rounded-lg bg-ring/10 text-ring text-xs font-medium">
-                        Pro Plan
+                        Growth Plan
                       </div>
                     </div>
                   </div>

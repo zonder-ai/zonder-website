@@ -19,7 +19,7 @@ export function ContactSection() {
             Start deploying agents today
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Free to start. No credit card required.
+            Start with a 10-day free trial.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="h-12 px-8" asChild>
