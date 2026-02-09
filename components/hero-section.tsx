@@ -231,7 +231,7 @@ const HeroHeader = () => {
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2">
               <Button variant="ghost" size="sm" asChild>
-                <Link href="#login">Log in</Link>
+                <a href="https://ui.zonder.ai" target="_blank" rel="noopener noreferrer">Log in</a>
               </Button>
               <Button size="sm" asChild>
                 <Link href="/contact">Get started</Link>
@@ -267,7 +267,7 @@ const HeroHeader = () => {
               ))}
               <div className="pt-3 border-t border-border flex flex-col gap-2">
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href="#login">Log in</Link>
+                  <a href="https://ui.zonder.ai" target="_blank" rel="noopener noreferrer">Log in</a>
                 </Button>
                 <Button className="w-full" asChild>
                   <Link href="/contact">Get started</Link>
