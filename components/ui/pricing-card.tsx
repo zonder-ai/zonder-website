@@ -6,19 +6,10 @@ import NumberFlow from "@number-flow/react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
+import type { PricingTier } from "@/lib/pricing"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-
-export interface PricingTier {
-  name: string
-  price: Record<string, number | string>
-  description: string
-  features: string[]
-  cta: string
-  highlighted?: boolean
-  popular?: boolean
-}
 
 interface PricingCardProps {
   tier: PricingTier
